@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/luanrubensf/api-feedback/issues"
   },
-  "homepage": "https://github.com/luanrubensf/api-feedback#readme"
+  "homepage": "https://github.com/luanrubensf/api-feedback#readme",
+  "dependencies": {
+    "mongoose": "^5.2.9",
+    "restify": "^7.2.1"
+  },
+  "devDependencies": {
+    "@types/mongoose": "^5.2.6",
+    "@types/restify": "^7.2.3"
+  }
 }
