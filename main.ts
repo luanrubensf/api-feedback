@@ -1,8 +1,9 @@
 import {Server} from './server/server'
+import {feedbacksRouter} from './feedback/feedback.router';
 
 const server = new Server();
 
-server.bootstrap([])
+server.bootstrap([feedbacksRouter])
     .then(server => {
         // console.log('Server is listening on:', server.application.address())
         console.log('Connected to database');

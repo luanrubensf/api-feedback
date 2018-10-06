@@ -4,7 +4,7 @@ import {Feedback} from './feedback.model';
 
 class FeedbackRouter extends Router {
     applyRoutes(application: restify.Server) {
-        application.get('feedbacks', (req, resp, next) => {
+        application.get('/feedbacks', (req, resp, next) => {
             Feedback.find().then(feedbacks => {
                 resp.json(feedbacks);
                 return next();
@@ -12,3 +12,5 @@ class FeedbackRouter extends Router {
         });
     }
 }
+
+export const feedbacksRouter = new FeedbackRouter();
