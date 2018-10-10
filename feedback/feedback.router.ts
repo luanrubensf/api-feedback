@@ -30,6 +30,22 @@ class FeedbackRouter extends Router {
                 return next();
             });
         });
+
+        application.put('/feedbacks/:id', (req, resp, next) => {
+            const options = {
+                overwrite: true
+            };
+            Feedback.update({_id: req.params.id}, req.body, options)
+                .exec().then((result) => {
+                if (result.n) {
+                    return Feedback.findById(req.params.id);
+                }
+                resp.send(404);
+            }).then(saved => {
+                resp.json(saved);
+                return next();
+            });
+        });
     }
 }
 
