@@ -10,6 +10,26 @@ class FeedbackRouter extends Router {
                 return next();
             })
         });
+
+        application.get('/feedbacks/:id', (req, resp, next) => {
+            Feedback.findById(req.params.id).then(feedback => {
+                if (feedback) {
+                    resp.json(feedback);
+                    return next();
+                }
+
+                resp.send(404);
+                return next();
+            })
+        });
+
+        application.post('/feedbacks', (req, resp, next) => {
+            let feedback = new Feedback(req.body);
+            feedback.save().then(saved => {
+                resp.json(saved);
+                return next();
+            });
+        });
     }
 }
 
