@@ -7,9 +7,13 @@ export interface Feedback extends mongoose.Document {
 
 const userSchema = new mongoose.Schema({
     user: {
-        type: String
+        type: String,
+        required: true
     },
     message: {
+        type: String
+    },
+    systemId: {
         type: String
     }
 });

@@ -5,7 +5,6 @@ const server = new Server();
 
 server.bootstrap([feedbacksRouter])
     .then(server => {
-        // console.log('Server is listening on:', server.application.address())
         console.log('Connected to database');
         console.log('Server is listening on:', server.application.address());
     })
